@@ -25,9 +25,10 @@ import {
   X,
 } from 'lucide-react';
 
-type ThemeKey = 'tide' | 'terracotta' | 'saffron' | 'ink';
+type ThemeKey = 'cocoa' | 'tide' | 'terracotta' | 'saffron' | 'ink';
 
 const themes: Record<ThemeKey, { label: string; note: string; primary: string; soft: string; ink: string }> = {
+  cocoa: { label: 'Cocoa + ivory', note: 'Warm + grounded', primary: '24 38% 31%', soft: '30 42% 68%', ink: '24 28% 18%' },
   tide: { label: 'Tidal green', note: 'Calm + considered', primary: '164 36% 36%', soft: '157 42% 65%', ink: '205 28% 19%' },
   terracotta: { label: 'Soft terracotta', note: 'Warm + expressive', primary: '12 57% 49%', soft: '12 57% 72%', ink: '19 29% 20%' },
   saffron: { label: 'Golden hour', note: 'Bright + optimistic', primary: '35 70% 42%', soft: '36 80% 68%', ink: '31 30% 19%' },
@@ -85,7 +86,7 @@ function Editable({ value, onChange, className = '', multiline = false, testId }
 }
 
 function App() {
-  const [themeKey, setThemeKey] = useState<ThemeKey>('tide');
+  const [themeKey, setThemeKey] = useState<ThemeKey>('cocoa');
   const [showThemePanel, setShowThemePanel] = useState(false);
   const [showCustomize, setShowCustomize] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
