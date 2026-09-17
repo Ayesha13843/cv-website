@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "CV Help Centre"
+description = "A simple professional CV template with sample content, accent color controls, and a print-ready layout for saving as PDF."
+version = "1.0.0"
+id = "artifacts/cv-help-centre"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25964
+
+[services.development]
+run = "pnpm --filter @workspace/cv-help-centre run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cv-help-centre", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cv-help-centre/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25964"
+BASE_PATH = "/"
